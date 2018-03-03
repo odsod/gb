@@ -1,0 +1,65 @@
+#!/usr/bin/env python3
+
+import json
+import requests
+from bs4 import BeautifulSoup
+
+
+def main():
+    page = requests.get(
+        'http://www.pastraiser.com/cpu/gameboy/gameboy_opcodes.html')
+    page.raise_for_status()
+    soup = BeautifulSoup(page.text, 'html.parser')
+    tables = soup.find_all('table')
+    print(json.dumps({
+        'noPrefix': parse_instruction_table(tables[0]),
+        'cbPrefix': parse_instruction_table(tables[1]),
+    }, indent=2))
+
+
+def parse_instruction_table(table):
+    result = []
+    for r, row in enumerate(table.find_all('tr')[1:]):
+        for c, col in enumerate(row.find_all('td')[1:]):
+            opcode = r*16 + c
+            result.append(parse_op(opcode, col))
+    return result
+
+
+def parse_op(opcode, col):
+    strings = list(col.strings)
+    if len(strings) != 3:
+        return {'opcode': hex(opcode), 'implementation': None}
+    mnemonic, execution_info, flags = strings
+    size_bytes, cycles = execution_info.split()
+    if '/' in cycles:
+        branch, no_branch = cycles.split('/')
+        cycles = {'branch': int(branch), 'noBranch': int(no_branch)}
+    else:
+        cycles = int(cycles)
+    z, n, h, c = flags.split()
+    return {
+        'opcode': hex(opcode),
+        'implementation': {
+            'mnemonic': mnemonic,
+            'bytes': int(size_bytes),
+            'cycles': cycles,
+            'flags': {
+                'z': parse_flag(z),
+                'n': parse_flag(n),
+                'h': parse_flag(h),
+                'c': parse_flag(c),
+            },
+        }
+    }
+
+
+def parse_flag(flag):
+    try:
+        return int(flag)
+    except Exception:
+        return flag != '-'
+
+
+if __name__ == '__main__':
+    main()

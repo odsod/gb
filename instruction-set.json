@@ -1,0 +1,7112 @@
+{
+  "noPrefix": [
+    {
+      "opcode": "0x0",
+      "implementation": {
+        "mnemonic": "NOP",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x1",
+      "implementation": {
+        "mnemonic": "LD BC,d16",
+        "bytes": 3,
+        "cycles": 12,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x2",
+      "implementation": {
+        "mnemonic": "LD (BC),A",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x3",
+      "implementation": {
+        "mnemonic": "INC BC",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x4",
+      "implementation": {
+        "mnemonic": "INC B",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x5",
+      "implementation": {
+        "mnemonic": "DEC B",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x6",
+      "implementation": {
+        "mnemonic": "LD B,d8",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x7",
+      "implementation": {
+        "mnemonic": "RLCA",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": 0,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x8",
+      "implementation": {
+        "mnemonic": "LD (a16),SP",
+        "bytes": 3,
+        "cycles": 20,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x9",
+      "implementation": {
+        "mnemonic": "ADD HL,BC",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xa",
+      "implementation": {
+        "mnemonic": "LD A,(BC)",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xb",
+      "implementation": {
+        "mnemonic": "DEC BC",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xc",
+      "implementation": {
+        "mnemonic": "INC C",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xd",
+      "implementation": {
+        "mnemonic": "DEC C",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xe",
+      "implementation": {
+        "mnemonic": "LD C,d8",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xf",
+      "implementation": {
+        "mnemonic": "RRCA",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": 0,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x10",
+      "implementation": {
+        "mnemonic": "STOP 0",
+        "bytes": 2,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x11",
+      "implementation": {
+        "mnemonic": "LD DE,d16",
+        "bytes": 3,
+        "cycles": 12,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x12",
+      "implementation": {
+        "mnemonic": "LD (DE),A",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x13",
+      "implementation": {
+        "mnemonic": "INC DE",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x14",
+      "implementation": {
+        "mnemonic": "INC D",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x15",
+      "implementation": {
+        "mnemonic": "DEC D",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x16",
+      "implementation": {
+        "mnemonic": "LD D,d8",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x17",
+      "implementation": {
+        "mnemonic": "RLA",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": 0,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x18",
+      "implementation": {
+        "mnemonic": "JR r8",
+        "bytes": 2,
+        "cycles": 12,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x19",
+      "implementation": {
+        "mnemonic": "ADD HL,DE",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x1a",
+      "implementation": {
+        "mnemonic": "LD A,(DE)",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x1b",
+      "implementation": {
+        "mnemonic": "DEC DE",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x1c",
+      "implementation": {
+        "mnemonic": "INC E",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x1d",
+      "implementation": {
+        "mnemonic": "DEC E",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x1e",
+      "implementation": {
+        "mnemonic": "LD E,d8",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x1f",
+      "implementation": {
+        "mnemonic": "RRA",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": 0,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x20",
+      "implementation": {
+        "mnemonic": "JR NZ,r8",
+        "bytes": 2,
+        "cycles": {
+          "branch": 12,
+          "noBranch": 8
+        },
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x21",
+      "implementation": {
+        "mnemonic": "LD HL,d16",
+        "bytes": 3,
+        "cycles": 12,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x22",
+      "implementation": {
+        "mnemonic": "LD (HL+),A",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x23",
+      "implementation": {
+        "mnemonic": "INC HL",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x24",
+      "implementation": {
+        "mnemonic": "INC H",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x25",
+      "implementation": {
+        "mnemonic": "DEC H",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x26",
+      "implementation": {
+        "mnemonic": "LD H,d8",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x27",
+      "implementation": {
+        "mnemonic": "DAA",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": false,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x28",
+      "implementation": {
+        "mnemonic": "JR Z,r8",
+        "bytes": 2,
+        "cycles": {
+          "branch": 12,
+          "noBranch": 8
+        },
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x29",
+      "implementation": {
+        "mnemonic": "ADD HL,HL",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x2a",
+      "implementation": {
+        "mnemonic": "LD A,(HL+)",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x2b",
+      "implementation": {
+        "mnemonic": "DEC HL",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x2c",
+      "implementation": {
+        "mnemonic": "INC L",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x2d",
+      "implementation": {
+        "mnemonic": "DEC L",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x2e",
+      "implementation": {
+        "mnemonic": "LD L,d8",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x2f",
+      "implementation": {
+        "mnemonic": "CPL",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": 1,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x30",
+      "implementation": {
+        "mnemonic": "JR NC,r8",
+        "bytes": 2,
+        "cycles": {
+          "branch": 12,
+          "noBranch": 8
+        },
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x31",
+      "implementation": {
+        "mnemonic": "LD SP,d16",
+        "bytes": 3,
+        "cycles": 12,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x32",
+      "implementation": {
+        "mnemonic": "LD (HL-),A",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x33",
+      "implementation": {
+        "mnemonic": "INC SP",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x34",
+      "implementation": {
+        "mnemonic": "INC (HL)",
+        "bytes": 1,
+        "cycles": 12,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x35",
+      "implementation": {
+        "mnemonic": "DEC (HL)",
+        "bytes": 1,
+        "cycles": 12,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x36",
+      "implementation": {
+        "mnemonic": "LD (HL),d8",
+        "bytes": 2,
+        "cycles": 12,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x37",
+      "implementation": {
+        "mnemonic": "SCF",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": 0,
+          "h": 0,
+          "c": 1
+        }
+      }
+    },
+    {
+      "opcode": "0x38",
+      "implementation": {
+        "mnemonic": "JR C,r8",
+        "bytes": 2,
+        "cycles": {
+          "branch": 12,
+          "noBranch": 8
+        },
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x39",
+      "implementation": {
+        "mnemonic": "ADD HL,SP",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x3a",
+      "implementation": {
+        "mnemonic": "LD A,(HL-)",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x3b",
+      "implementation": {
+        "mnemonic": "DEC SP",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x3c",
+      "implementation": {
+        "mnemonic": "INC A",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x3d",
+      "implementation": {
+        "mnemonic": "DEC A",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x3e",
+      "implementation": {
+        "mnemonic": "LD A,d8",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x3f",
+      "implementation": {
+        "mnemonic": "CCF",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x40",
+      "implementation": {
+        "mnemonic": "LD B,B",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x41",
+      "implementation": {
+        "mnemonic": "LD B,C",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x42",
+      "implementation": {
+        "mnemonic": "LD B,D",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x43",
+      "implementation": {
+        "mnemonic": "LD B,E",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x44",
+      "implementation": {
+        "mnemonic": "LD B,H",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x45",
+      "implementation": {
+        "mnemonic": "LD B,L",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x46",
+      "implementation": {
+        "mnemonic": "LD B,(HL)",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x47",
+      "implementation": {
+        "mnemonic": "LD B,A",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x48",
+      "implementation": {
+        "mnemonic": "LD C,B",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x49",
+      "implementation": {
+        "mnemonic": "LD C,C",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x4a",
+      "implementation": {
+        "mnemonic": "LD C,D",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x4b",
+      "implementation": {
+        "mnemonic": "LD C,E",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x4c",
+      "implementation": {
+        "mnemonic": "LD C,H",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x4d",
+      "implementation": {
+        "mnemonic": "LD C,L",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x4e",
+      "implementation": {
+        "mnemonic": "LD C,(HL)",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x4f",
+      "implementation": {
+        "mnemonic": "LD C,A",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x50",
+      "implementation": {
+        "mnemonic": "LD D,B",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x51",
+      "implementation": {
+        "mnemonic": "LD D,C",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x52",
+      "implementation": {
+        "mnemonic": "LD D,D",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x53",
+      "implementation": {
+        "mnemonic": "LD D,E",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x54",
+      "implementation": {
+        "mnemonic": "LD D,H",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x55",
+      "implementation": {
+        "mnemonic": "LD D,L",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x56",
+      "implementation": {
+        "mnemonic": "LD D,(HL)",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x57",
+      "implementation": {
+        "mnemonic": "LD D,A",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x58",
+      "implementation": {
+        "mnemonic": "LD E,B",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x59",
+      "implementation": {
+        "mnemonic": "LD E,C",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x5a",
+      "implementation": {
+        "mnemonic": "LD E,D",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x5b",
+      "implementation": {
+        "mnemonic": "LD E,E",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x5c",
+      "implementation": {
+        "mnemonic": "LD E,H",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x5d",
+      "implementation": {
+        "mnemonic": "LD E,L",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x5e",
+      "implementation": {
+        "mnemonic": "LD E,(HL)",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x5f",
+      "implementation": {
+        "mnemonic": "LD E,A",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x60",
+      "implementation": {
+        "mnemonic": "LD H,B",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x61",
+      "implementation": {
+        "mnemonic": "LD H,C",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x62",
+      "implementation": {
+        "mnemonic": "LD H,D",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x63",
+      "implementation": {
+        "mnemonic": "LD H,E",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x64",
+      "implementation": {
+        "mnemonic": "LD H,H",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x65",
+      "implementation": {
+        "mnemonic": "LD H,L",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x66",
+      "implementation": {
+        "mnemonic": "LD H,(HL)",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x67",
+      "implementation": {
+        "mnemonic": "LD H,A",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x68",
+      "implementation": {
+        "mnemonic": "LD L,B",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x69",
+      "implementation": {
+        "mnemonic": "LD L,C",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x6a",
+      "implementation": {
+        "mnemonic": "LD L,D",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x6b",
+      "implementation": {
+        "mnemonic": "LD L,E",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x6c",
+      "implementation": {
+        "mnemonic": "LD L,H",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x6d",
+      "implementation": {
+        "mnemonic": "LD L,L",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x6e",
+      "implementation": {
+        "mnemonic": "LD L,(HL)",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x6f",
+      "implementation": {
+        "mnemonic": "LD L,A",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x70",
+      "implementation": {
+        "mnemonic": "LD (HL),B",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x71",
+      "implementation": {
+        "mnemonic": "LD (HL),C",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x72",
+      "implementation": {
+        "mnemonic": "LD (HL),D",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x73",
+      "implementation": {
+        "mnemonic": "LD (HL),E",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x74",
+      "implementation": {
+        "mnemonic": "LD (HL),H",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x75",
+      "implementation": {
+        "mnemonic": "LD (HL),L",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x76",
+      "implementation": {
+        "mnemonic": "HALT",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x77",
+      "implementation": {
+        "mnemonic": "LD (HL),A",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x78",
+      "implementation": {
+        "mnemonic": "LD A,B",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x79",
+      "implementation": {
+        "mnemonic": "LD A,C",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x7a",
+      "implementation": {
+        "mnemonic": "LD A,D",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x7b",
+      "implementation": {
+        "mnemonic": "LD A,E",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x7c",
+      "implementation": {
+        "mnemonic": "LD A,H",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x7d",
+      "implementation": {
+        "mnemonic": "LD A,L",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x7e",
+      "implementation": {
+        "mnemonic": "LD A,(HL)",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x7f",
+      "implementation": {
+        "mnemonic": "LD A,A",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x80",
+      "implementation": {
+        "mnemonic": "ADD A,B",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x81",
+      "implementation": {
+        "mnemonic": "ADD A,C",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x82",
+      "implementation": {
+        "mnemonic": "ADD A,D",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x83",
+      "implementation": {
+        "mnemonic": "ADD A,E",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x84",
+      "implementation": {
+        "mnemonic": "ADD A,H",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x85",
+      "implementation": {
+        "mnemonic": "ADD A,L",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x86",
+      "implementation": {
+        "mnemonic": "ADD A,(HL)",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x87",
+      "implementation": {
+        "mnemonic": "ADD A,A",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x88",
+      "implementation": {
+        "mnemonic": "ADC A,B",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x89",
+      "implementation": {
+        "mnemonic": "ADC A,C",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x8a",
+      "implementation": {
+        "mnemonic": "ADC A,D",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x8b",
+      "implementation": {
+        "mnemonic": "ADC A,E",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x8c",
+      "implementation": {
+        "mnemonic": "ADC A,H",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x8d",
+      "implementation": {
+        "mnemonic": "ADC A,L",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x8e",
+      "implementation": {
+        "mnemonic": "ADC A,(HL)",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x8f",
+      "implementation": {
+        "mnemonic": "ADC A,A",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x90",
+      "implementation": {
+        "mnemonic": "SUB B",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x91",
+      "implementation": {
+        "mnemonic": "SUB C",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x92",
+      "implementation": {
+        "mnemonic": "SUB D",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x93",
+      "implementation": {
+        "mnemonic": "SUB E",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x94",
+      "implementation": {
+        "mnemonic": "SUB H",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x95",
+      "implementation": {
+        "mnemonic": "SUB L",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x96",
+      "implementation": {
+        "mnemonic": "SUB (HL)",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x97",
+      "implementation": {
+        "mnemonic": "SUB A",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x98",
+      "implementation": {
+        "mnemonic": "SBC A,B",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x99",
+      "implementation": {
+        "mnemonic": "SBC A,C",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x9a",
+      "implementation": {
+        "mnemonic": "SBC A,D",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x9b",
+      "implementation": {
+        "mnemonic": "SBC A,E",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x9c",
+      "implementation": {
+        "mnemonic": "SBC A,H",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x9d",
+      "implementation": {
+        "mnemonic": "SBC A,L",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x9e",
+      "implementation": {
+        "mnemonic": "SBC A,(HL)",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x9f",
+      "implementation": {
+        "mnemonic": "SBC A,A",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xa0",
+      "implementation": {
+        "mnemonic": "AND B",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xa1",
+      "implementation": {
+        "mnemonic": "AND C",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xa2",
+      "implementation": {
+        "mnemonic": "AND D",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xa3",
+      "implementation": {
+        "mnemonic": "AND E",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xa4",
+      "implementation": {
+        "mnemonic": "AND H",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xa5",
+      "implementation": {
+        "mnemonic": "AND L",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xa6",
+      "implementation": {
+        "mnemonic": "AND (HL)",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xa7",
+      "implementation": {
+        "mnemonic": "AND A",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xa8",
+      "implementation": {
+        "mnemonic": "XOR B",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xa9",
+      "implementation": {
+        "mnemonic": "XOR C",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xaa",
+      "implementation": {
+        "mnemonic": "XOR D",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xab",
+      "implementation": {
+        "mnemonic": "XOR E",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xac",
+      "implementation": {
+        "mnemonic": "XOR H",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xad",
+      "implementation": {
+        "mnemonic": "XOR L",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xae",
+      "implementation": {
+        "mnemonic": "XOR (HL)",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xaf",
+      "implementation": {
+        "mnemonic": "XOR A",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xb0",
+      "implementation": {
+        "mnemonic": "OR B",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xb1",
+      "implementation": {
+        "mnemonic": "OR C",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xb2",
+      "implementation": {
+        "mnemonic": "OR D",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xb3",
+      "implementation": {
+        "mnemonic": "OR E",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xb4",
+      "implementation": {
+        "mnemonic": "OR H",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xb5",
+      "implementation": {
+        "mnemonic": "OR L",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xb6",
+      "implementation": {
+        "mnemonic": "OR (HL)",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xb7",
+      "implementation": {
+        "mnemonic": "OR A",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xb8",
+      "implementation": {
+        "mnemonic": "CP B",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xb9",
+      "implementation": {
+        "mnemonic": "CP C",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xba",
+      "implementation": {
+        "mnemonic": "CP D",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xbb",
+      "implementation": {
+        "mnemonic": "CP E",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xbc",
+      "implementation": {
+        "mnemonic": "CP H",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xbd",
+      "implementation": {
+        "mnemonic": "CP L",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xbe",
+      "implementation": {
+        "mnemonic": "CP (HL)",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xbf",
+      "implementation": {
+        "mnemonic": "CP A",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xc0",
+      "implementation": {
+        "mnemonic": "RET NZ",
+        "bytes": 1,
+        "cycles": {
+          "branch": 20,
+          "noBranch": 8
+        },
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xc1",
+      "implementation": {
+        "mnemonic": "POP BC",
+        "bytes": 1,
+        "cycles": 12,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xc2",
+      "implementation": {
+        "mnemonic": "JP NZ,a16",
+        "bytes": 3,
+        "cycles": {
+          "branch": 16,
+          "noBranch": 12
+        },
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xc3",
+      "implementation": {
+        "mnemonic": "JP a16",
+        "bytes": 3,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xc4",
+      "implementation": {
+        "mnemonic": "CALL NZ,a16",
+        "bytes": 3,
+        "cycles": {
+          "branch": 24,
+          "noBranch": 12
+        },
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xc5",
+      "implementation": {
+        "mnemonic": "PUSH BC",
+        "bytes": 1,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xc6",
+      "implementation": {
+        "mnemonic": "ADD A,d8",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xc7",
+      "implementation": {
+        "mnemonic": "RST 00H",
+        "bytes": 1,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xc8",
+      "implementation": {
+        "mnemonic": "RET Z",
+        "bytes": 1,
+        "cycles": {
+          "branch": 20,
+          "noBranch": 8
+        },
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xc9",
+      "implementation": {
+        "mnemonic": "RET",
+        "bytes": 1,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xca",
+      "implementation": {
+        "mnemonic": "JP Z,a16",
+        "bytes": 3,
+        "cycles": {
+          "branch": 16,
+          "noBranch": 12
+        },
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xcb",
+      "implementation": {
+        "mnemonic": "PREFIX CB",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xcc",
+      "implementation": {
+        "mnemonic": "CALL Z,a16",
+        "bytes": 3,
+        "cycles": {
+          "branch": 24,
+          "noBranch": 12
+        },
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xcd",
+      "implementation": {
+        "mnemonic": "CALL a16",
+        "bytes": 3,
+        "cycles": 24,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xce",
+      "implementation": {
+        "mnemonic": "ADC A,d8",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xcf",
+      "implementation": {
+        "mnemonic": "RST 08H",
+        "bytes": 1,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xd0",
+      "implementation": {
+        "mnemonic": "RET NC",
+        "bytes": 1,
+        "cycles": {
+          "branch": 20,
+          "noBranch": 8
+        },
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xd1",
+      "implementation": {
+        "mnemonic": "POP DE",
+        "bytes": 1,
+        "cycles": 12,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xd2",
+      "implementation": {
+        "mnemonic": "JP NC,a16",
+        "bytes": 3,
+        "cycles": {
+          "branch": 16,
+          "noBranch": 12
+        },
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xd3",
+      "implementation": null
+    },
+    {
+      "opcode": "0xd4",
+      "implementation": {
+        "mnemonic": "CALL NC,a16",
+        "bytes": 3,
+        "cycles": {
+          "branch": 24,
+          "noBranch": 12
+        },
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xd5",
+      "implementation": {
+        "mnemonic": "PUSH DE",
+        "bytes": 1,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xd6",
+      "implementation": {
+        "mnemonic": "SUB d8",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xd7",
+      "implementation": {
+        "mnemonic": "RST 10H",
+        "bytes": 1,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xd8",
+      "implementation": {
+        "mnemonic": "RET C",
+        "bytes": 1,
+        "cycles": {
+          "branch": 20,
+          "noBranch": 8
+        },
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xd9",
+      "implementation": {
+        "mnemonic": "RETI",
+        "bytes": 1,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xda",
+      "implementation": {
+        "mnemonic": "JP C,a16",
+        "bytes": 3,
+        "cycles": {
+          "branch": 16,
+          "noBranch": 12
+        },
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xdb",
+      "implementation": null
+    },
+    {
+      "opcode": "0xdc",
+      "implementation": {
+        "mnemonic": "CALL C,a16",
+        "bytes": 3,
+        "cycles": {
+          "branch": 24,
+          "noBranch": 12
+        },
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xdd",
+      "implementation": null
+    },
+    {
+      "opcode": "0xde",
+      "implementation": {
+        "mnemonic": "SBC A,d8",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xdf",
+      "implementation": {
+        "mnemonic": "RST 18H",
+        "bytes": 1,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xe0",
+      "implementation": {
+        "mnemonic": "LDH (a8),A",
+        "bytes": 2,
+        "cycles": 12,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xe1",
+      "implementation": {
+        "mnemonic": "POP HL",
+        "bytes": 1,
+        "cycles": 12,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xe2",
+      "implementation": {
+        "mnemonic": "LD (C),A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xe3",
+      "implementation": null
+    },
+    {
+      "opcode": "0xe4",
+      "implementation": null
+    },
+    {
+      "opcode": "0xe5",
+      "implementation": {
+        "mnemonic": "PUSH HL",
+        "bytes": 1,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xe6",
+      "implementation": {
+        "mnemonic": "AND d8",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xe7",
+      "implementation": {
+        "mnemonic": "RST 20H",
+        "bytes": 1,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xe8",
+      "implementation": {
+        "mnemonic": "ADD SP,r8",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": 0,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xe9",
+      "implementation": {
+        "mnemonic": "JP (HL)",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xea",
+      "implementation": {
+        "mnemonic": "LD (a16),A",
+        "bytes": 3,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xeb",
+      "implementation": null
+    },
+    {
+      "opcode": "0xec",
+      "implementation": null
+    },
+    {
+      "opcode": "0xed",
+      "implementation": null
+    },
+    {
+      "opcode": "0xee",
+      "implementation": {
+        "mnemonic": "XOR d8",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xef",
+      "implementation": {
+        "mnemonic": "RST 28H",
+        "bytes": 1,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xf0",
+      "implementation": {
+        "mnemonic": "LDH A,(a8)",
+        "bytes": 2,
+        "cycles": 12,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xf1",
+      "implementation": {
+        "mnemonic": "POP AF",
+        "bytes": 1,
+        "cycles": 12,
+        "flags": {
+          "z": true,
+          "n": true,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xf2",
+      "implementation": {
+        "mnemonic": "LD A,(C)",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xf3",
+      "implementation": {
+        "mnemonic": "DI",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xf4",
+      "implementation": null
+    },
+    {
+      "opcode": "0xf5",
+      "implementation": {
+        "mnemonic": "PUSH AF",
+        "bytes": 1,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xf6",
+      "implementation": {
+        "mnemonic": "OR d8",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0xf7",
+      "implementation": {
+        "mnemonic": "RST 30H",
+        "bytes": 1,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xf8",
+      "implementation": {
+        "mnemonic": "LD HL,SP+r8",
+        "bytes": 2,
+        "cycles": 12,
+        "flags": {
+          "z": 0,
+          "n": 0,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xf9",
+      "implementation": {
+        "mnemonic": "LD SP,HL",
+        "bytes": 1,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xfa",
+      "implementation": {
+        "mnemonic": "LD A,(a16)",
+        "bytes": 3,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xfb",
+      "implementation": {
+        "mnemonic": "EI",
+        "bytes": 1,
+        "cycles": 4,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xfc",
+      "implementation": null
+    },
+    {
+      "opcode": "0xfd",
+      "implementation": null
+    },
+    {
+      "opcode": "0xfe",
+      "implementation": {
+        "mnemonic": "CP d8",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 1,
+          "h": true,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xff",
+      "implementation": {
+        "mnemonic": "RST 38H",
+        "bytes": 1,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    }
+  ],
+  "cbPrefix": [
+    {
+      "opcode": "0x0",
+      "implementation": {
+        "mnemonic": "RLC B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x1",
+      "implementation": {
+        "mnemonic": "RLC C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x2",
+      "implementation": {
+        "mnemonic": "RLC D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x3",
+      "implementation": {
+        "mnemonic": "RLC E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x4",
+      "implementation": {
+        "mnemonic": "RLC H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x5",
+      "implementation": {
+        "mnemonic": "RLC L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x6",
+      "implementation": {
+        "mnemonic": "RLC (HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x7",
+      "implementation": {
+        "mnemonic": "RLC A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x8",
+      "implementation": {
+        "mnemonic": "RRC B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x9",
+      "implementation": {
+        "mnemonic": "RRC C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xa",
+      "implementation": {
+        "mnemonic": "RRC D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xb",
+      "implementation": {
+        "mnemonic": "RRC E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xc",
+      "implementation": {
+        "mnemonic": "RRC H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xd",
+      "implementation": {
+        "mnemonic": "RRC L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xe",
+      "implementation": {
+        "mnemonic": "RRC (HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0xf",
+      "implementation": {
+        "mnemonic": "RRC A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x10",
+      "implementation": {
+        "mnemonic": "RL B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x11",
+      "implementation": {
+        "mnemonic": "RL C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x12",
+      "implementation": {
+        "mnemonic": "RL D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x13",
+      "implementation": {
+        "mnemonic": "RL E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x14",
+      "implementation": {
+        "mnemonic": "RL H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x15",
+      "implementation": {
+        "mnemonic": "RL L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x16",
+      "implementation": {
+        "mnemonic": "RL (HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x17",
+      "implementation": {
+        "mnemonic": "RL A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x18",
+      "implementation": {
+        "mnemonic": "RR B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x19",
+      "implementation": {
+        "mnemonic": "RR C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x1a",
+      "implementation": {
+        "mnemonic": "RR D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x1b",
+      "implementation": {
+        "mnemonic": "RR E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x1c",
+      "implementation": {
+        "mnemonic": "RR H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x1d",
+      "implementation": {
+        "mnemonic": "RR L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x1e",
+      "implementation": {
+        "mnemonic": "RR (HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x1f",
+      "implementation": {
+        "mnemonic": "RR A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x20",
+      "implementation": {
+        "mnemonic": "SLA B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x21",
+      "implementation": {
+        "mnemonic": "SLA C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x22",
+      "implementation": {
+        "mnemonic": "SLA D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x23",
+      "implementation": {
+        "mnemonic": "SLA E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x24",
+      "implementation": {
+        "mnemonic": "SLA H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x25",
+      "implementation": {
+        "mnemonic": "SLA L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x26",
+      "implementation": {
+        "mnemonic": "SLA (HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x27",
+      "implementation": {
+        "mnemonic": "SLA A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x28",
+      "implementation": {
+        "mnemonic": "SRA B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0x29",
+      "implementation": {
+        "mnemonic": "SRA C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0x2a",
+      "implementation": {
+        "mnemonic": "SRA D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0x2b",
+      "implementation": {
+        "mnemonic": "SRA E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0x2c",
+      "implementation": {
+        "mnemonic": "SRA H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0x2d",
+      "implementation": {
+        "mnemonic": "SRA L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0x2e",
+      "implementation": {
+        "mnemonic": "SRA (HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0x2f",
+      "implementation": {
+        "mnemonic": "SRA A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0x30",
+      "implementation": {
+        "mnemonic": "SWAP B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0x31",
+      "implementation": {
+        "mnemonic": "SWAP C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0x32",
+      "implementation": {
+        "mnemonic": "SWAP D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0x33",
+      "implementation": {
+        "mnemonic": "SWAP E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0x34",
+      "implementation": {
+        "mnemonic": "SWAP H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0x35",
+      "implementation": {
+        "mnemonic": "SWAP L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0x36",
+      "implementation": {
+        "mnemonic": "SWAP (HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0x37",
+      "implementation": {
+        "mnemonic": "SWAP A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "opcode": "0x38",
+      "implementation": {
+        "mnemonic": "SRL B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x39",
+      "implementation": {
+        "mnemonic": "SRL C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x3a",
+      "implementation": {
+        "mnemonic": "SRL D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x3b",
+      "implementation": {
+        "mnemonic": "SRL E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x3c",
+      "implementation": {
+        "mnemonic": "SRL H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x3d",
+      "implementation": {
+        "mnemonic": "SRL L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x3e",
+      "implementation": {
+        "mnemonic": "SRL (HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x3f",
+      "implementation": {
+        "mnemonic": "SRL A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 0,
+          "c": true
+        }
+      }
+    },
+    {
+      "opcode": "0x40",
+      "implementation": {
+        "mnemonic": "BIT 0,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x41",
+      "implementation": {
+        "mnemonic": "BIT 0,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x42",
+      "implementation": {
+        "mnemonic": "BIT 0,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x43",
+      "implementation": {
+        "mnemonic": "BIT 0,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x44",
+      "implementation": {
+        "mnemonic": "BIT 0,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x45",
+      "implementation": {
+        "mnemonic": "BIT 0,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x46",
+      "implementation": {
+        "mnemonic": "BIT 0,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x47",
+      "implementation": {
+        "mnemonic": "BIT 0,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x48",
+      "implementation": {
+        "mnemonic": "BIT 1,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x49",
+      "implementation": {
+        "mnemonic": "BIT 1,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x4a",
+      "implementation": {
+        "mnemonic": "BIT 1,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x4b",
+      "implementation": {
+        "mnemonic": "BIT 1,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x4c",
+      "implementation": {
+        "mnemonic": "BIT 1,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x4d",
+      "implementation": {
+        "mnemonic": "BIT 1,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x4e",
+      "implementation": {
+        "mnemonic": "BIT 1,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x4f",
+      "implementation": {
+        "mnemonic": "BIT 1,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x50",
+      "implementation": {
+        "mnemonic": "BIT 2,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x51",
+      "implementation": {
+        "mnemonic": "BIT 2,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x52",
+      "implementation": {
+        "mnemonic": "BIT 2,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x53",
+      "implementation": {
+        "mnemonic": "BIT 2,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x54",
+      "implementation": {
+        "mnemonic": "BIT 2,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x55",
+      "implementation": {
+        "mnemonic": "BIT 2,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x56",
+      "implementation": {
+        "mnemonic": "BIT 2,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x57",
+      "implementation": {
+        "mnemonic": "BIT 2,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x58",
+      "implementation": {
+        "mnemonic": "BIT 3,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x59",
+      "implementation": {
+        "mnemonic": "BIT 3,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x5a",
+      "implementation": {
+        "mnemonic": "BIT 3,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x5b",
+      "implementation": {
+        "mnemonic": "BIT 3,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x5c",
+      "implementation": {
+        "mnemonic": "BIT 3,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x5d",
+      "implementation": {
+        "mnemonic": "BIT 3,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x5e",
+      "implementation": {
+        "mnemonic": "BIT 3,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x5f",
+      "implementation": {
+        "mnemonic": "BIT 3,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x60",
+      "implementation": {
+        "mnemonic": "BIT 4,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x61",
+      "implementation": {
+        "mnemonic": "BIT 4,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x62",
+      "implementation": {
+        "mnemonic": "BIT 4,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x63",
+      "implementation": {
+        "mnemonic": "BIT 4,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x64",
+      "implementation": {
+        "mnemonic": "BIT 4,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x65",
+      "implementation": {
+        "mnemonic": "BIT 4,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x66",
+      "implementation": {
+        "mnemonic": "BIT 4,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x67",
+      "implementation": {
+        "mnemonic": "BIT 4,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x68",
+      "implementation": {
+        "mnemonic": "BIT 5,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x69",
+      "implementation": {
+        "mnemonic": "BIT 5,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x6a",
+      "implementation": {
+        "mnemonic": "BIT 5,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x6b",
+      "implementation": {
+        "mnemonic": "BIT 5,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x6c",
+      "implementation": {
+        "mnemonic": "BIT 5,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x6d",
+      "implementation": {
+        "mnemonic": "BIT 5,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x6e",
+      "implementation": {
+        "mnemonic": "BIT 5,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x6f",
+      "implementation": {
+        "mnemonic": "BIT 5,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x70",
+      "implementation": {
+        "mnemonic": "BIT 6,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x71",
+      "implementation": {
+        "mnemonic": "BIT 6,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x72",
+      "implementation": {
+        "mnemonic": "BIT 6,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x73",
+      "implementation": {
+        "mnemonic": "BIT 6,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x74",
+      "implementation": {
+        "mnemonic": "BIT 6,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x75",
+      "implementation": {
+        "mnemonic": "BIT 6,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x76",
+      "implementation": {
+        "mnemonic": "BIT 6,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x77",
+      "implementation": {
+        "mnemonic": "BIT 6,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x78",
+      "implementation": {
+        "mnemonic": "BIT 7,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x79",
+      "implementation": {
+        "mnemonic": "BIT 7,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x7a",
+      "implementation": {
+        "mnemonic": "BIT 7,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x7b",
+      "implementation": {
+        "mnemonic": "BIT 7,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x7c",
+      "implementation": {
+        "mnemonic": "BIT 7,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x7d",
+      "implementation": {
+        "mnemonic": "BIT 7,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x7e",
+      "implementation": {
+        "mnemonic": "BIT 7,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x7f",
+      "implementation": {
+        "mnemonic": "BIT 7,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": true,
+          "n": 0,
+          "h": 1,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x80",
+      "implementation": {
+        "mnemonic": "RES 0,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x81",
+      "implementation": {
+        "mnemonic": "RES 0,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x82",
+      "implementation": {
+        "mnemonic": "RES 0,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x83",
+      "implementation": {
+        "mnemonic": "RES 0,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x84",
+      "implementation": {
+        "mnemonic": "RES 0,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x85",
+      "implementation": {
+        "mnemonic": "RES 0,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x86",
+      "implementation": {
+        "mnemonic": "RES 0,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x87",
+      "implementation": {
+        "mnemonic": "RES 0,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x88",
+      "implementation": {
+        "mnemonic": "RES 1,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x89",
+      "implementation": {
+        "mnemonic": "RES 1,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x8a",
+      "implementation": {
+        "mnemonic": "RES 1,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x8b",
+      "implementation": {
+        "mnemonic": "RES 1,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x8c",
+      "implementation": {
+        "mnemonic": "RES 1,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x8d",
+      "implementation": {
+        "mnemonic": "RES 1,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x8e",
+      "implementation": {
+        "mnemonic": "RES 1,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x8f",
+      "implementation": {
+        "mnemonic": "RES 1,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x90",
+      "implementation": {
+        "mnemonic": "RES 2,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x91",
+      "implementation": {
+        "mnemonic": "RES 2,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x92",
+      "implementation": {
+        "mnemonic": "RES 2,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x93",
+      "implementation": {
+        "mnemonic": "RES 2,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x94",
+      "implementation": {
+        "mnemonic": "RES 2,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x95",
+      "implementation": {
+        "mnemonic": "RES 2,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x96",
+      "implementation": {
+        "mnemonic": "RES 2,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x97",
+      "implementation": {
+        "mnemonic": "RES 2,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x98",
+      "implementation": {
+        "mnemonic": "RES 3,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x99",
+      "implementation": {
+        "mnemonic": "RES 3,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x9a",
+      "implementation": {
+        "mnemonic": "RES 3,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x9b",
+      "implementation": {
+        "mnemonic": "RES 3,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x9c",
+      "implementation": {
+        "mnemonic": "RES 3,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x9d",
+      "implementation": {
+        "mnemonic": "RES 3,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x9e",
+      "implementation": {
+        "mnemonic": "RES 3,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0x9f",
+      "implementation": {
+        "mnemonic": "RES 3,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xa0",
+      "implementation": {
+        "mnemonic": "RES 4,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xa1",
+      "implementation": {
+        "mnemonic": "RES 4,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xa2",
+      "implementation": {
+        "mnemonic": "RES 4,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xa3",
+      "implementation": {
+        "mnemonic": "RES 4,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xa4",
+      "implementation": {
+        "mnemonic": "RES 4,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xa5",
+      "implementation": {
+        "mnemonic": "RES 4,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xa6",
+      "implementation": {
+        "mnemonic": "RES 4,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xa7",
+      "implementation": {
+        "mnemonic": "RES 4,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xa8",
+      "implementation": {
+        "mnemonic": "RES 5,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xa9",
+      "implementation": {
+        "mnemonic": "RES 5,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xaa",
+      "implementation": {
+        "mnemonic": "RES 5,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xab",
+      "implementation": {
+        "mnemonic": "RES 5,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xac",
+      "implementation": {
+        "mnemonic": "RES 5,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xad",
+      "implementation": {
+        "mnemonic": "RES 5,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xae",
+      "implementation": {
+        "mnemonic": "RES 5,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xaf",
+      "implementation": {
+        "mnemonic": "RES 5,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xb0",
+      "implementation": {
+        "mnemonic": "RES 6,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xb1",
+      "implementation": {
+        "mnemonic": "RES 6,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xb2",
+      "implementation": {
+        "mnemonic": "RES 6,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xb3",
+      "implementation": {
+        "mnemonic": "RES 6,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xb4",
+      "implementation": {
+        "mnemonic": "RES 6,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xb5",
+      "implementation": {
+        "mnemonic": "RES 6,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xb6",
+      "implementation": {
+        "mnemonic": "RES 6,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xb7",
+      "implementation": {
+        "mnemonic": "RES 6,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xb8",
+      "implementation": {
+        "mnemonic": "RES 7,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xb9",
+      "implementation": {
+        "mnemonic": "RES 7,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xba",
+      "implementation": {
+        "mnemonic": "RES 7,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xbb",
+      "implementation": {
+        "mnemonic": "RES 7,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xbc",
+      "implementation": {
+        "mnemonic": "RES 7,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xbd",
+      "implementation": {
+        "mnemonic": "RES 7,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xbe",
+      "implementation": {
+        "mnemonic": "RES 7,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xbf",
+      "implementation": {
+        "mnemonic": "RES 7,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xc0",
+      "implementation": {
+        "mnemonic": "SET 0,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xc1",
+      "implementation": {
+        "mnemonic": "SET 0,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xc2",
+      "implementation": {
+        "mnemonic": "SET 0,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xc3",
+      "implementation": {
+        "mnemonic": "SET 0,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xc4",
+      "implementation": {
+        "mnemonic": "SET 0,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xc5",
+      "implementation": {
+        "mnemonic": "SET 0,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xc6",
+      "implementation": {
+        "mnemonic": "SET 0,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xc7",
+      "implementation": {
+        "mnemonic": "SET 0,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xc8",
+      "implementation": {
+        "mnemonic": "SET 1,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xc9",
+      "implementation": {
+        "mnemonic": "SET 1,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xca",
+      "implementation": {
+        "mnemonic": "SET 1,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xcb",
+      "implementation": {
+        "mnemonic": "SET 1,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xcc",
+      "implementation": {
+        "mnemonic": "SET 1,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xcd",
+      "implementation": {
+        "mnemonic": "SET 1,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xce",
+      "implementation": {
+        "mnemonic": "SET 1,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xcf",
+      "implementation": {
+        "mnemonic": "SET 1,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xd0",
+      "implementation": {
+        "mnemonic": "SET 2,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xd1",
+      "implementation": {
+        "mnemonic": "SET 2,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xd2",
+      "implementation": {
+        "mnemonic": "SET 2,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xd3",
+      "implementation": {
+        "mnemonic": "SET 2,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xd4",
+      "implementation": {
+        "mnemonic": "SET 2,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xd5",
+      "implementation": {
+        "mnemonic": "SET 2,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xd6",
+      "implementation": {
+        "mnemonic": "SET 2,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xd7",
+      "implementation": {
+        "mnemonic": "SET 2,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xd8",
+      "implementation": {
+        "mnemonic": "SET 3,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xd9",
+      "implementation": {
+        "mnemonic": "SET 3,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xda",
+      "implementation": {
+        "mnemonic": "SET 3,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xdb",
+      "implementation": {
+        "mnemonic": "SET 3,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xdc",
+      "implementation": {
+        "mnemonic": "SET 3,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xdd",
+      "implementation": {
+        "mnemonic": "SET 3,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xde",
+      "implementation": {
+        "mnemonic": "SET 3,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xdf",
+      "implementation": {
+        "mnemonic": "SET 3,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xe0",
+      "implementation": {
+        "mnemonic": "SET 4,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xe1",
+      "implementation": {
+        "mnemonic": "SET 4,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xe2",
+      "implementation": {
+        "mnemonic": "SET 4,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xe3",
+      "implementation": {
+        "mnemonic": "SET 4,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xe4",
+      "implementation": {
+        "mnemonic": "SET 4,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xe5",
+      "implementation": {
+        "mnemonic": "SET 4,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xe6",
+      "implementation": {
+        "mnemonic": "SET 4,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xe7",
+      "implementation": {
+        "mnemonic": "SET 4,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xe8",
+      "implementation": {
+        "mnemonic": "SET 5,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xe9",
+      "implementation": {
+        "mnemonic": "SET 5,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xea",
+      "implementation": {
+        "mnemonic": "SET 5,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xeb",
+      "implementation": {
+        "mnemonic": "SET 5,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xec",
+      "implementation": {
+        "mnemonic": "SET 5,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xed",
+      "implementation": {
+        "mnemonic": "SET 5,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xee",
+      "implementation": {
+        "mnemonic": "SET 5,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xef",
+      "implementation": {
+        "mnemonic": "SET 5,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xf0",
+      "implementation": {
+        "mnemonic": "SET 6,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xf1",
+      "implementation": {
+        "mnemonic": "SET 6,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xf2",
+      "implementation": {
+        "mnemonic": "SET 6,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xf3",
+      "implementation": {
+        "mnemonic": "SET 6,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xf4",
+      "implementation": {
+        "mnemonic": "SET 6,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xf5",
+      "implementation": {
+        "mnemonic": "SET 6,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xf6",
+      "implementation": {
+        "mnemonic": "SET 6,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xf7",
+      "implementation": {
+        "mnemonic": "SET 6,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xf8",
+      "implementation": {
+        "mnemonic": "SET 7,B",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xf9",
+      "implementation": {
+        "mnemonic": "SET 7,C",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xfa",
+      "implementation": {
+        "mnemonic": "SET 7,D",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xfb",
+      "implementation": {
+        "mnemonic": "SET 7,E",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xfc",
+      "implementation": {
+        "mnemonic": "SET 7,H",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xfd",
+      "implementation": {
+        "mnemonic": "SET 7,L",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xfe",
+      "implementation": {
+        "mnemonic": "SET 7,(HL)",
+        "bytes": 2,
+        "cycles": 16,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    },
+    {
+      "opcode": "0xff",
+      "implementation": {
+        "mnemonic": "SET 7,A",
+        "bytes": 2,
+        "cycles": 8,
+        "flags": {
+          "z": false,
+          "n": false,
+          "h": false,
+          "c": false
+        }
+      }
+    }
+  ]
+}
