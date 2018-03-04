@@ -3,7 +3,7 @@ package cartridge
 import (
 	"fmt"
 
-	"github.com/odsod/gb/memory"
+	"github.com/odsod/gb/mmu"
 )
 
 // ROM offsets
@@ -57,7 +57,7 @@ type RAMBank [RAMBankSize]byte
 
 // Cartridge models a game cartridge
 type Cartridge interface {
-	memory.Mapper
+	mmu.Memory
 
 	// LoadROM initializes the cartridge ROM
 	LoadROM(rom []byte)
