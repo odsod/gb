@@ -1,0 +1,159 @@
+#!/usr/bin/env ruby
+
+require 'json'
+require 'open3'
+
+class CB
+  def initialize(i)
+    @opcode = i['opcode']
+    @mnemonic, @cycles = i['implementation'].values_at('mnemonic', 'cycles')
+    @z, @n, @h, @c = i['implementation']['flags'].values_at('z', 'n', 'h', 'c')
+  end
+
+  def update_zero_flag
+    case
+    when @z.is_a?(Numeric)
+      "cpu.SetFlagZ(#{@z == 1})"
+    when @z
+      "cpu.SetFlagZ(result == 0)"
+    end
+  end
+
+  def update_subtract_flag
+    case
+    when @n.is_a?(Numeric)
+      "cpu.SetFlagN(#{@n == 1})"
+    when @n
+      raise "Unhandled: #{@mnemonic}"
+    end
+  end
+
+  def update_half_carry_flag
+    case
+    when @h.is_a?(Numeric)
+      "cpu.SetFlagH(#{@h == 1})"
+    when @h
+      raise "Unhandled: #{@mnemonic}"
+    end
+  end
+
+  def update_carry_flag
+    case
+    when @c.is_a?(Numeric)
+      "cpu.SetFlagC(#{@c == 1})"
+    when @c
+      carry = 
+        case @mnemonic
+        when /^.L/ # left shift
+          'value & 0x80 != 0'
+        when /^.R/ # right shift
+          'value & 0x01 != 0'
+        else
+          raise "Unhandled: #{@mnemonic}"
+        end
+      "cpu.SetFlagC(#{carry})"
+    end
+  end
+
+  def load_value
+    case @mnemonic
+    when /\(HL\)$/
+      'value := cpu.memory.Read(cpu.HL())'
+    when /([ABCDEHL])$/
+      "value := cpu.#{$1}()"
+    else
+      raise "Unhandled: #{@mnemonic}"
+    end
+  end
+
+  def compute_result
+    case @mnemonic
+    when /^RLC/
+      'result := value << 1
+       if value & 0x80 != 0 { result |= 0x1 }' 
+    when /^RL/
+      'result := value << 1
+       if cpu.FlagC() { result |= 0x1 }'
+    when /^RRC/
+      'result := value >> 1
+       if value & 0x01 != 0 { result |= 0x80 }' 
+    when /^RR/
+      'result := value >> 1
+       if cpu.FlagC() { result |= 0x80 }'
+    when /^SLA/
+      'result := value << 1'
+    when /^SRA/
+      'result := value >> 1
+       if value & 0x80 != 0 { result |= 0x80 }'
+    when /^SRL/
+      'result := value >> 1'
+    when /^SWAP/
+      'result := (value >> 4) & (value << 4)'
+    when /^BIT (.)/
+      "result := value & (1 << #{$1})"
+    when /^RES (.)/
+      "result := value & ^uint8(1 << #{$1})"
+    when /^SET (.)/
+      "result := value | (1 << #{$1})"
+    else
+      raise "Unhandled: #{@mnemonic}"
+    end
+  end
+
+  def store_result
+    case @mnemonic
+    when /^BIT/
+      # Nothing to store
+    when /\(HL\)$/
+      'cpu.memory.Write(cpu.HL(), result)'
+    when /([ABCDEHL])$/
+      "cpu.Set#{$1}(result)"
+    else
+      raise "Unhandled: #{@mnemonic}"
+    end
+  end
+
+  def to_s
+    "case #{@opcode}: // #{@mnemonic}
+      #{self.load_value}
+      #{self.compute_result}
+      #{self.store_result}
+      #{self.update_zero_flag}
+      #{self.update_subtract_flag}
+      #{self.update_half_carry_flag}
+      #{self.update_carry_flag}
+      return #{@cycles}
+    ".strip.gsub(/\s*$/m, '')
+  end
+end
+
+@instruction_set = JSON.parse(File.read(ARGV[0]))
+
+@output = "
+// This file has been generated automatically. Do not edit manually.
+package cpu
+
+func (cpu *CPU) executeGeneratedCBInstruction(opcode uint8) (cycles uint) {
+    switch opcode {
+    #{@instruction_set['cbPrefix']
+        .map {|i| CB.new(i)}
+        .map(&:to_s)
+        .map {|s| "\n" + s + "\n" }
+        .join("\n")
+        }
+    default:
+        panic(fmt.Sprintf(\"Unhandled CB instruction: %#x\", opcode))
+    }
+}
+"
+
+Open3.popen3('goimports') do |stdin, stdout, stderr, wait_thread|
+  stdin.write @output
+  stdin.close
+  if wait_thread.value == 0
+    puts stdout.read
+  else
+    puts @output
+    puts stderr.read
+  end
+end
