@@ -1,0 +1,375 @@
+#!/usr/bin/env ruby
+
+require 'json'
+require 'open3'
+
+class LD
+  def initialize(i)
+    @opcode = i['opcode']
+    @mnemonic, @cycles = i['implementation'].values_at('mnemonic', 'cycles')
+  end
+
+  def load_value
+    case @mnemonic
+    when /,\((a8|C)\)$/ # Zero page
+      "value := cpu.memory.Read(mmu.ZeroPage.AddressOf(cpu.#{$1}()))"
+    when /,([^()+-]+)$/ # Non-pointer
+      "value := cpu.#{$1}()"
+    when /,\(HL([+-])\)$/ # HL with inc/dec
+      "value := cpu.memory.Read(cpu.HL#{$1 == '+' ? 'I' : 'D'}())"
+    when /,\((.+)\)$/ # Pointer
+      "value := cpu.memory.Read(cpu.#{$1}())"
+    else
+      raise "Unhandled: #{@mnemonic}"
+    end
+  end
+
+  def store_value
+    case @mnemonic
+    when / ([^()]+),/ # Non-pointer
+      "cpu.Set#{$1}(value)"
+    when / \(HL([+-])\),/ # HL with inc/dec
+      "cpu.Write8(cpu.HL#{$1 == '+' ? 'I' : 'D'}(), value)"
+    when / \((a8|C)\),/ # Zero page pointer
+      "cpu.Write8(mmu.ZeroPage.AddressOf(cpu.#{$1}()), value)"
+    when / \(([^+-]+)\),/ # Pointer
+      "cpu.Write8(cpu.#{$1}(), value)"
+    else
+      raise "Unhandled: #{@mnemonic}"
+    end
+  end
+
+  def to_s
+    "case #{@opcode}: // #{@mnemonic}
+      #{self.load_value}
+      #{self.store_value}
+      return #{@cycles}
+    ".strip.gsub(/\s*$/m, '')
+  end
+end
+
+class Jump
+  def initialize(i)
+    @opcode = i['opcode']
+    @mnemonic, @cycles = i['implementation'].values_at('mnemonic', 'cycles')
+  end
+
+  def conditional?
+    @cycles.is_a?(Hash)
+  end
+
+  def condition
+    case @mnemonic
+    when / (N?)(Z|C)/
+      "#{'!' if $1 == 'N'}cpu.Flag#{$2}()"
+    else
+      raise "Unhandled: #{@mnemonic}"
+    end
+  end
+
+  def compute_address
+    case @mnemonic
+    when /^JR .*r8$/
+      'address := uint16(int32(cpu.PC()) + int32(cpu.Fetch8()))'
+    when /^RET/
+      'address := cpu.Pop16()'
+    when /a16$/
+      'address := cpu.Fetch16()'
+    when /^RST (..)H/
+      "const address = 0x#{$1}"
+    when 'JP (HL)'
+      'address := cpu.HL()'
+    else
+      raise "Unhandled: #{@mnemonic}"
+    end
+  end
+
+  def execute_jump
+    case @mnemonic
+    when /^RETI/
+      'cpu.EnableInterrupts()
+       cpu.SetPC(address)'
+    when /^(CALL|RST)/
+      'cpu.Push16(cpu.PC())
+       cpu.SetPC(address)'
+    when /^(JR|JP|RET)/
+      'cpu.SetPC(address)'
+    else
+      raise "Unhandled: #{@mnemonic}"
+    end
+  end
+
+  def to_s
+    if self.conditional?
+      "case #{@opcode}: // #{@mnemonic}
+        if #{self.condition} {
+          #{self.compute_address}
+          #{self.execute_jump}
+          return #{@cycles['branch']}
+        }
+        return #{@cycles['noBranch']}
+      ".strip.gsub(/\s*$/m, '')
+    else
+      "case #{@opcode}: // #{@mnemonic}
+       #{self.compute_address}
+       #{self.execute_jump}
+       return #{@cycles}
+      ".strip.gsub(/\s*$/m, '')
+    end
+  end
+end
+
+class ALU
+  def initialize(i)
+    @opcode = i['opcode']
+    @mnemonic, @cycles = i['implementation'].values_at('mnemonic', 'cycles')
+    @z, @n, @h, @c = i['implementation']['flags'].values_at('z', 'n', 'h', 'c')
+  end
+
+  def load_operand1
+    case @mnemonic
+    when /^(?:INC|DEC) \(HL\)$/
+      "operand1 := cpu.memory.Read(cpu.HL())"
+    when /^(?:INC|DEC) (.+)$/
+      "operand1 := cpu.#{$1}()"
+    when / [^,]*$/ # Implicit A
+      "operand1 := cpu.A()"
+    when / (.+),/
+      "operand1 := cpu.#{$1}()"
+    else
+      raise "Unhandled: #{@mnemonic}"
+    end
+  end
+
+  def load_operand2
+    case @mnemonic
+    when /^(INC|DEC)/
+      'const operand2 = 1'
+    when /(?:,| )([^,()]+)$/ # Non-pointer
+      "operand2:= cpu.#{$1}()"
+    when /(?: |,)\(HL\)$/ # HL pointer
+      "operand2:= cpu.memory.Read(cpu.HL())"
+    else
+      raise "Unhandled: #{@mnemonic}"
+    end
+  end
+
+  def compute_result
+    case @mnemonic
+    when /^(ADD|INC)/
+      'result := operand1 + operand2'
+    when /^ADC/
+      'result := operand1 + operand2 + cpu.Carry()'
+    when /^(SUB|CP|DEC)/
+      'result := operand1 - operand2'
+    when /^SBC/
+      'result := operand1 - operand2 - cpu.Carry()'
+    when /^AND/
+      'result := operand1 & operand2'
+    when /^OR/
+      'result := operand1 | operand2'
+    when /^XOR/
+      'result := operand1 ^ operand2'
+    else
+      raise "Unhandled: #{@mnemonic}"
+    end
+  end
+
+  def store_result
+    case @mnemonic
+    when /^(?:INC|DEC) \(HL\)$/
+      'cpu.Write8(cpu.HL(), result)'
+    when /^(?:INC|DEC) (.+)$/
+      "cpu.Set#{$1}(result)"
+    when /^CP /
+      '' # Update flags only
+    when / [^,]*$/ # Implicit A
+      'cpu.SetA(result)'
+    when / (.+),/
+      "cpu.Set#{$1}(result)"
+    else
+      raise "Unhandled: #{@mnemonic}"
+    end
+  end
+
+  def update_zero_flag
+    case
+    when @z.is_a?(Numeric)
+      "cpu.SetFlagZ(#{@z == 1})"
+    when @z
+      "cpu.SetFlagZ(result == 0)"
+    end
+  end
+
+  def update_subtract_flag
+    case
+    when @n.is_a?(Numeric)
+      "cpu.SetFlagN(#{@n == 1})"
+    when @n
+      "Unhandled: #{@mnemonic}"
+    end
+  end
+
+  def update_half_carry_flag
+    case
+    when @h.is_a?(Numeric)
+      "cpu.SetFlagH(#{@h == 1})"
+    when @h
+      half_carry =
+        if @n == 1 # Subtraction
+          if @mnemonic =~ /^SBC/ # With carry
+            'int16(operand1&0x0F) - int16(operand2&0x0F) - int16(cpu.Carry()) < 0'
+          else # Without carry
+            'int16(operand1&0x0F) - int16(operand2&0x0F) < 0'
+          end
+        else # Addition
+          if @mnemonic =~ /^ADD HL/ # 16-bit
+            'uint32(operand1&0xFFF) + uint32(operand2&0xFFF) > 0xFFF'
+          elsif @mnemonic =~ /^ADC/ # With carry
+            '(operand1&0x0F) + (operand2&0x0F) + cpu.Carry() > 0x0F'
+          else # Without carry
+            '(operand1&0x0F) + (operand2&0x0F) > 0x0F'
+          end
+        end
+      "cpu.SetFlagH(#{half_carry})"
+    end
+  end
+
+  def update_carry_flag
+    case
+    when @c.is_a?(Numeric)
+      "cpu.SetFlagC(#{@c == 1})"
+    when @c
+      carry =
+        if @n == 1 # Subtraction
+          if @mnemonic =~ /^SBC/ # With carry
+            'int16(operand1) - int16(operand2) - int16(cpu.Carry()) < 0'
+          else # Without carry
+            'int16(operand1) - int16(operand2) < 0'
+          end
+        else # Addition
+          if @mnemonic =~ /^ADD HL/ # 16-bit
+            'uint32(operand1) + uint32(operand2) > 0xFFFF'
+          elsif @mnemonic =~ /^ADC/ # With carry
+            'uint16(operand1) + uint16(operand2) + uint16(cpu.Carry()) > 0xFF'
+          else # Without carry
+            'uint16(operand1) + uint16(operand2) > 0xFF'
+          end
+        end
+      "cpu.SetFlagC(#{carry})"
+    end
+  end
+
+  def to_s
+    "case #{@opcode}: // #{@mnemonic}
+    #{self.load_operand1}
+    #{self.load_operand2}
+    #{self.compute_result}
+    #{self.store_result}
+    #{self.update_zero_flag}
+    #{self.update_subtract_flag}
+    #{self.update_half_carry_flag}
+    #{self.update_carry_flag}
+     return #{@cycles}
+    ".strip.gsub(/\s*$/m, '')
+  end
+end
+
+class Stack
+  def initialize(i)
+    @opcode = i['opcode']
+    @mnemonic, @cycles = i['implementation'].values_at('mnemonic', 'cycles')
+  end
+
+  def to_s
+    op =
+      case @mnemonic
+      when /^PUSH (..)$/
+        "cpu.Push16(cpu.#{$1}())"
+      when /^POP (..)$/
+        "cpu.Set#{$1}(cpu.Pop16())"
+      else
+        "Unhandled: #{@mnemonic}"
+      end
+    "case #{@opcode}: // #{@mnemonic}
+    #{op}
+     return #{@cycles}
+    ".strip.gsub(/\s*$/m, '')
+  end
+end
+
+class Unsupported
+  def initialize(i)
+    @opcode = i['opcode']
+  end
+
+  def to_s
+    "case #{@opcode}: // Not used
+      panic(\"Unsupported opcode by Sharp LR35902: #{@opcode}\")
+    ".strip.gsub(/\s*$/m, '')
+  end
+end
+
+class Unhandled
+  def initialize(i)
+    @opcode = i['opcode']
+    @mnemonic = i['implementation']['mnemonic']
+  end
+
+  def to_s
+    "case #{@opcode}: // Unhandled: #{@mnemonic}
+      panic(\"Unhandled instruction: #{@mnemonic} (#{@opcode})\")
+    ".strip.gsub(/\s*$/m, '')
+  end
+end
+
+def parse(instruction)
+  if instruction['implementation'].nil?
+    return Unsupported.new(instruction)
+  end
+  case instruction['implementation']['mnemonic']
+  when 'ADD SP,r8', 'LD HL,SP+r8', 'LD (a16),SP'
+    # Special cases
+    Unhandled.new(instruction)
+  when /^(PUSH|POP)/
+    Stack.new(instruction)
+  when /^LD/
+    LD.new(instruction)
+  when /^(CALL|RET|RETI|JP|JR|RST)/
+    Jump.new(instruction)
+  when /^(INC|DEC|ADD|ADC|SUB|SBC|AND|OR|XOR|CP) /
+    ALU.new(instruction)
+  else
+    Unhandled.new(instruction)
+  end
+end
+
+@instruction_set = JSON.parse(File.read(ARGV[0]))
+
+@output = "
+// This file has been generated automatically. Do not edit manually.
+package cpu
+
+func (cpu *CPU) executeGeneratedInstruction(opcode uint8) (cycles uint) {
+    switch opcode {
+    #{@instruction_set['noPrefix']
+        .map {|i| parse(i)}
+        .map(&:to_s)
+        .map {|s| "\n" + s + "\n" }
+        .join("\n")
+        }
+    default:
+        panic(fmt.Sprintf(\"Opcode unhandled by generated instructions: %#x\", opcode))
+    }
+}"
+
+Open3.popen3('goimports') do |stdin, stdout, stderr, wait_thread|
+  stdin.write @output
+  stdin.close
+  if wait_thread.value == 0
+    puts stdout.read
+  else
+    puts @output
+    puts stderr.read
+  end
+end
