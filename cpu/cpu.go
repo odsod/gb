@@ -11,20 +11,18 @@ type CPU struct {
 	flagZ, flagN, flagH, flagC bool
 	isHalted                   bool
 	isInterruptEnabled         bool
-	memory                     mmu.MMU
+
+	// isPendingEI is true when the last instruction was EI
+	isPendingEI bool
+
+	// isPendingDI is true when the last instruction was DI
+	isPendingDI bool
+
+	memory mmu.MMU
 }
 
 func (cpu *CPU) Step() (cycles uint) {
 	return cpu.execute(cpu.Fetch8())
-}
-
-func (cpu *CPU) execute(opcode uint8) (cycles uint) {
-	switch opcode {
-	case 0xcb:
-		return 4 + cpu.executeGeneratedCBInstruction(cpu.Fetch8())
-	default:
-		return cpu.executeGeneratedInstruction(opcode)
-	}
 }
 
 func (cpu *CPU) PC() uint16 {
@@ -266,6 +264,18 @@ func (cpu *CPU) Write16(address uint16, value uint16) {
 
 func (cpu *CPU) EnableInterrupts() {
 	cpu.isInterruptEnabled = true
+}
+
+func (cpu *CPU) EnableInterruptsAfterNextInstruction() {
+	cpu.isPendingEI = true
+}
+
+func (cpu *CPU) DisableInterruptsAfterNextInstruction() {
+	cpu.isPendingDI = true
+}
+
+func (cpu *CPU) Halt() {
+	cpu.isHalted = true
 }
 
 // Carry gives the numeric value of the C flag
