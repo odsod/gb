@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+grep Unhandled: cpu/generated_instructions.go \
+  | grep -v -f <(grep case cpu/instructions.go | sed 's#//.*##')
