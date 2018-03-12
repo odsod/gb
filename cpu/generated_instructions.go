@@ -1622,11 +1622,8 @@ func (cpu *CPU) executeGeneratedInstruction(opcode uint8) (cycles uint) {
 		}
 		return 8
 
-	case 0xd9: // RETI
-		address := cpu.Pop16()
-		cpu.EnableInterrupts()
-		cpu.SetPC(address)
-		return 16
+	case 0xd9: // Unhandled: RETI
+		panic("Unhandled instruction: RETI (0xd9)")
 
 	case 0xda: // JP C,a16
 		if cpu.FlagC() {

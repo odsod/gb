@@ -86,9 +86,6 @@ class Jump
 
   def execute_jump
     case @mnemonic
-    when /^RETI/
-      'cpu.EnableInterrupts()
-       cpu.SetPC(address)'
     when /^(CALL|RST)/
       'cpu.Push16(cpu.PC())
        cpu.SetPC(address)'
@@ -328,14 +325,14 @@ def parse(instruction)
     return Unsupported.new(instruction)
   end
   case instruction['implementation']['mnemonic']
-  when 'ADD SP,r8', 'LD HL,SP+r8', 'LD (a16),SP'
+  when 'ADD SP,r8', 'LD HL,SP+r8', 'LD (a16),SP', 'RETI'
     # Special cases
     Unhandled.new(instruction)
   when /^(PUSH|POP)/
     Stack.new(instruction)
   when /^LD/
     LD.new(instruction)
-  when /^(CALL|RET|RETI|JP|JR|RST)/
+  when /^(CALL|RET|JP|JR|RST)/
     Jump.new(instruction)
   when /^(INC|DEC|ADD|ADC|SUB|SBC|AND|OR|XOR|CP) /
     ALU.new(instruction)

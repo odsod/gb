@@ -93,6 +93,11 @@ func (cpu *CPU) execute(opcode uint8) (cycles uint) {
 	case 0xcb: // PREFIX CB
 		return 4 + cpu.executeGeneratedCBInstruction(cpu.Fetch8())
 
+	case 0xd9: // RETI
+		cpu.EnableInterruptsAfterNextInstruction()
+		cpu.SetPC(cpu.Pop16())
+		return 16
+
 	case 0xe8: // ADD SP,r8
 		operand1 := int32(cpu.SP())
 		operand2 := int32(int8(cpu.Fetch8()))
