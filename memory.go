@@ -1,4 +1,4 @@
-package mmu
+package gb
 
 type MemoryRegion struct {
 	// Start address (inclusive)
@@ -30,17 +30,25 @@ var (
 	ZeroPage     = MemoryRegion{0xFF00, 0xFFFF}
 )
 
-type Memory interface {
-	Read(address uint16) uint8
-	Write(address uint16, value uint8)
+const (
+	InterruptFlag   = 0xFF00
+	InterruptEnable = 0xFFFF
+)
+
+func (gb *GameBoy) Read8(addr uint16) uint8 {
+	switch {
+	default:
+		panic("Not implemented")
+	}
 }
 
-type MMU struct {
+func (gb *GameBoy) Write8(addr uint16, val uint8) {
+	panic("Not implemented")
 }
 
-func (mmu *MMU) Read(address uint16) uint8 {
-	return 0
-}
-
-func (mmu *MMU) Write(address uint16, value uint8) {
+func (gb *GameBoy) Write16(addr uint16, val uint16) {
+	lo := uint8(val)
+	hi := uint8(val >> 8)
+	gb.Write8(addr, lo)
+	gb.Write8(addr+1, hi)
 }

@@ -13,16 +13,16 @@ class CB
   def update_zero_flag
     case
     when @z.is_a?(Numeric)
-      "cpu.SetFlagZ(#{@z == 1})"
+      "gb.SetFlagZ(#{@z == 1})"
     when @z
-      "cpu.SetFlagZ(result == 0)"
+      "gb.SetFlagZ(result == 0)"
     end
   end
 
   def update_subtract_flag
     case
     when @n.is_a?(Numeric)
-      "cpu.SetFlagN(#{@n == 1})"
+      "gb.SetFlagN(#{@n == 1})"
     when @n
       raise "Unhandled: #{@mnemonic}"
     end
@@ -31,7 +31,7 @@ class CB
   def update_half_carry_flag
     case
     when @h.is_a?(Numeric)
-      "cpu.SetFlagH(#{@h == 1})"
+      "gb.SetFlagH(#{@h == 1})"
     when @h
       raise "Unhandled: #{@mnemonic}"
     end
@@ -40,7 +40,7 @@ class CB
   def update_carry_flag
     case
     when @c.is_a?(Numeric)
-      "cpu.SetFlagC(#{@c == 1})"
+      "gb.SetFlagC(#{@c == 1})"
     when @c
       carry = 
         case @mnemonic
@@ -51,16 +51,16 @@ class CB
         else
           raise "Unhandled: #{@mnemonic}"
         end
-      "cpu.SetFlagC(#{carry})"
+      "gb.SetFlagC(#{carry})"
     end
   end
 
   def load_value
     case @mnemonic
     when /\(HL\)$/
-      'value := cpu.memory.Read(cpu.HL())'
+      'value := gb.Read8(gb.HL())'
     when /([ABCDEHL])$/
-      "value := cpu.#{$1}()"
+      "value := gb.#{$1}()"
     else
       raise "Unhandled: #{@mnemonic}"
     end
@@ -73,13 +73,13 @@ class CB
        if value & 0x80 != 0 { result |= 0x1 }' 
     when /^RL/
       'result := value << 1
-       if cpu.FlagC() { result |= 0x1 }'
+       if gb.FlagC() { result |= 0x1 }'
     when /^RRC/
       'result := value >> 1
        if value & 0x01 != 0 { result |= 0x80 }' 
     when /^RR/
       'result := value >> 1
-       if cpu.FlagC() { result |= 0x80 }'
+       if gb.FlagC() { result |= 0x80 }'
     when /^SLA/
       'result := value << 1'
     when /^SRA/
@@ -105,9 +105,9 @@ class CB
     when /^BIT/
       # Nothing to store
     when /\(HL\)$/
-      'cpu.memory.Write(cpu.HL(), result)'
+      'gb.Write8(gb.HL(), result)'
     when /([ABCDEHL])$/
-      "cpu.Set#{$1}(result)"
+      "gb.Set#{$1}(result)"
     else
       raise "Unhandled: #{@mnemonic}"
     end
@@ -131,9 +131,9 @@ end
 
 @output = "
 // This file has been generated automatically. Do not edit manually.
-package cpu
+package gb
 
-func (cpu *CPU) executeGeneratedCBInstruction(opcode uint8) (cycles uint) {
+func (gb *GameBoy) executeGeneratedCBInstruction(opcode uint8) (cycles uint) {
     switch opcode {
     #{@instruction_set['cbPrefix']
         .map {|i| CB.new(i)}

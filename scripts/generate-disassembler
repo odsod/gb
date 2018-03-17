@@ -12,13 +12,13 @@ class LD
   def load_value
     case @mnemonic
     when /,\((a8|C)\)$/ # Zero page
-      "value := gb.Read8(ZeroPage.AddressOf(gb.#{$1}()))"
+      "value := cpu.memory.Read(mmu.ZeroPage.AddressOf(cpu.#{$1}()))"
     when /,([^()+-]+)$/ # Non-pointer
-      "value := gb.#{$1}()"
+      "value := cpu.#{$1}()"
     when /,\(HL([+-])\)$/ # HL with inc/dec
-      "value := gb.Read8(gb.HL#{$1 == '+' ? 'I' : 'D'}())"
+      "value := cpu.memory.Read(cpu.HL#{$1 == '+' ? 'I' : 'D'}())"
     when /,\((.+)\)$/ # Pointer
-      "value := gb.Read8(gb.#{$1}())"
+      "value := cpu.memory.Read(cpu.#{$1}())"
     else
       raise "Unhandled: #{@mnemonic}"
     end
@@ -27,13 +27,13 @@ class LD
   def store_value
     case @mnemonic
     when / ([^()]+),/ # Non-pointer
-      "gb.Set#{$1}(value)"
+      "cpu.Set#{$1}(value)"
     when / \(HL([+-])\),/ # HL with inc/dec
-      "gb.Write8(gb.HL#{$1 == '+' ? 'I' : 'D'}(), value)"
+      "cpu.Write8(cpu.HL#{$1 == '+' ? 'I' : 'D'}(), value)"
     when / \((a8|C)\),/ # Zero page pointer
-      "gb.Write8(ZeroPage.AddressOf(gb.#{$1}()), value)"
+      "cpu.Write8(mmu.ZeroPage.AddressOf(cpu.#{$1}()), value)"
     when / \(([^+-]+)\),/ # Pointer
-      "gb.Write8(gb.#{$1}(), value)"
+      "cpu.Write8(cpu.#{$1}(), value)"
     else
       raise "Unhandled: #{@mnemonic}"
     end
@@ -61,7 +61,7 @@ class Jump
   def condition
     case @mnemonic
     when / (N?)(Z|C)/
-      "#{'!' if $1 == 'N'}gb.Flag#{$2}()"
+      "#{'!' if $1 == 'N'}cpu.Flag#{$2}()"
     else
       raise "Unhandled: #{@mnemonic}"
     end
@@ -70,15 +70,15 @@ class Jump
   def compute_address
     case @mnemonic
     when /^JR .*r8$/
-      'address := uint16(int32(gb.PC()) + int32(gb.Fetch8()))'
+      'address := uint16(int32(cpu.PC()) + int32(cpu.Fetch8()))'
     when /^RET/
-      'address := gb.Pop16()'
+      'address := cpu.Pop16()'
     when /a16$/
-      'address := gb.Fetch16()'
+      'address := cpu.Fetch16()'
     when /^RST (..)H/
       "const address = 0x#{$1}"
     when 'JP (HL)'
-      'address := gb.HL()'
+      'address := cpu.HL()'
     else
       raise "Unhandled: #{@mnemonic}"
     end
@@ -87,10 +87,10 @@ class Jump
   def execute_jump
     case @mnemonic
     when /^(CALL|RST)/
-      'gb.Push16(gb.PC())
-       gb.SetPC(address)'
+      'cpu.Push16(cpu.PC())
+       cpu.SetPC(address)'
     when /^(JR|JP|RET)/
-      'gb.SetPC(address)'
+      'cpu.SetPC(address)'
     else
       raise "Unhandled: #{@mnemonic}"
     end
@@ -126,13 +126,13 @@ class ALU
   def load_operand1
     case @mnemonic
     when /^(?:INC|DEC) \(HL\)$/
-      "operand1 := gb.Read8(gb.HL())"
+      "operand1 := cpu.memory.Read(cpu.HL())"
     when /^(?:INC|DEC) (.+)$/
-      "operand1 := gb.#{$1}()"
+      "operand1 := cpu.#{$1}()"
     when / [^,]*$/ # Implicit A
-      "operand1 := gb.A()"
+      "operand1 := cpu.A()"
     when / (.+),/
-      "operand1 := gb.#{$1}()"
+      "operand1 := cpu.#{$1}()"
     else
       raise "Unhandled: #{@mnemonic}"
     end
@@ -143,9 +143,9 @@ class ALU
     when /^(INC|DEC)/
       'const operand2 = 1'
     when /(?:,| )([^,()]+)$/ # Non-pointer
-      "operand2:= gb.#{$1}()"
+      "operand2:= cpu.#{$1}()"
     when /(?: |,)\(HL\)$/ # HL pointer
-      "operand2:= gb.Read8(gb.HL())"
+      "operand2:= cpu.memory.Read(cpu.HL())"
     else
       raise "Unhandled: #{@mnemonic}"
     end
@@ -156,11 +156,11 @@ class ALU
     when /^(ADD|INC)/
       'result := operand1 + operand2'
     when /^ADC/
-      'result := operand1 + operand2 + gb.Carry()'
+      'result := operand1 + operand2 + cpu.Carry()'
     when /^(SUB|CP|DEC)/
       'result := operand1 - operand2'
     when /^SBC/
-      'result := operand1 - operand2 - gb.Carry()'
+      'result := operand1 - operand2 - cpu.Carry()'
     when /^AND/
       'result := operand1 & operand2'
     when /^OR/
@@ -175,15 +175,15 @@ class ALU
   def store_result
     case @mnemonic
     when /^(?:INC|DEC) \(HL\)$/
-      'gb.Write8(gb.HL(), result)'
+      'cpu.Write8(cpu.HL(), result)'
     when /^(?:INC|DEC) (.+)$/
-      "gb.Set#{$1}(result)"
+      "cpu.Set#{$1}(result)"
     when /^CP /
       '' # Update flags only
     when / [^,]*$/ # Implicit A
-      'gb.SetA(result)'
+      'cpu.SetA(result)'
     when / (.+),/
-      "gb.Set#{$1}(result)"
+      "cpu.Set#{$1}(result)"
     else
       raise "Unhandled: #{@mnemonic}"
     end
@@ -192,16 +192,16 @@ class ALU
   def update_zero_flag
     case
     when @z.is_a?(Numeric)
-      "gb.SetFlagZ(#{@z == 1})"
+      "cpu.SetFlagZ(#{@z == 1})"
     when @z
-      "gb.SetFlagZ(result == 0)"
+      "cpu.SetFlagZ(result == 0)"
     end
   end
 
   def update_subtract_flag
     case
     when @n.is_a?(Numeric)
-      "gb.SetFlagN(#{@n == 1})"
+      "cpu.SetFlagN(#{@n == 1})"
     when @n
       "Unhandled: #{@mnemonic}"
     end
@@ -210,12 +210,12 @@ class ALU
   def update_half_carry_flag
     case
     when @h.is_a?(Numeric)
-      "gb.SetFlagH(#{@h == 1})"
+      "cpu.SetFlagH(#{@h == 1})"
     when @h
       half_carry =
         if @n == 1 # Subtraction
           if @mnemonic =~ /^SBC/ # With carry
-            'int16(operand1&0x0F) - int16(operand2&0x0F) - int16(gb.Carry()) < 0'
+            'int16(operand1&0x0F) - int16(operand2&0x0F) - int16(cpu.Carry()) < 0'
           else # Without carry
             'int16(operand1&0x0F) - int16(operand2&0x0F) < 0'
           end
@@ -223,24 +223,24 @@ class ALU
           if @mnemonic =~ /^ADD HL/ # 16-bit
             'uint32(operand1&0xFFF) + uint32(operand2&0xFFF) > 0xFFF'
           elsif @mnemonic =~ /^ADC/ # With carry
-            '(operand1&0x0F) + (operand2&0x0F) + gb.Carry() > 0x0F'
+            '(operand1&0x0F) + (operand2&0x0F) + cpu.Carry() > 0x0F'
           else # Without carry
             '(operand1&0x0F) + (operand2&0x0F) > 0x0F'
           end
         end
-      "gb.SetFlagH(#{half_carry})"
+      "cpu.SetFlagH(#{half_carry})"
     end
   end
 
   def update_carry_flag
     case
     when @c.is_a?(Numeric)
-      "gb.SetFlagC(#{@c == 1})"
+      "cpu.SetFlagC(#{@c == 1})"
     when @c
       carry =
         if @n == 1 # Subtraction
           if @mnemonic =~ /^SBC/ # With carry
-            'int16(operand1) - int16(operand2) - int16(gb.Carry()) < 0'
+            'int16(operand1) - int16(operand2) - int16(cpu.Carry()) < 0'
           else # Without carry
             'int16(operand1) - int16(operand2) < 0'
           end
@@ -248,12 +248,12 @@ class ALU
           if @mnemonic =~ /^ADD HL/ # 16-bit
             'uint32(operand1) + uint32(operand2) > 0xFFFF'
           elsif @mnemonic =~ /^ADC/ # With carry
-            'uint16(operand1) + uint16(operand2) + uint16(gb.Carry()) > 0xFF'
+            'uint16(operand1) + uint16(operand2) + uint16(cpu.Carry()) > 0xFF'
           else # Without carry
             'uint16(operand1) + uint16(operand2) > 0xFF'
           end
         end
-      "gb.SetFlagC(#{carry})"
+      "cpu.SetFlagC(#{carry})"
     end
   end
 
@@ -282,9 +282,9 @@ class Stack
     op =
       case @mnemonic
       when /^PUSH (..)$/
-        "gb.Push16(gb.#{$1}())"
+        "cpu.Push16(cpu.#{$1}())"
       when /^POP (..)$/
-        "gb.Set#{$1}(gb.Pop16())"
+        "cpu.Set#{$1}(cpu.Pop16())"
       else
         "Unhandled: #{@mnemonic}"
       end
@@ -345,12 +345,22 @@ end
 
 @output = "
 // This file has been generated automatically. Do not edit manually.
-package gb
+package disassemble
 
-func (gb *GameBoy) executeGeneratedInstruction(opcode uint8) (cycles uint) {
+func NextInstruction(pc uint16, rom []byte) (n uint16, instruction string) {
+    opcode := rom[pc]
     switch opcode {
-    #{@instruction_set['noPrefix']
-        .map {|i| parse(i)}
+    #{@instruction_set['noPrefix'].map do |i|
+        "case #{i['opcode']}: #{
+            case
+            when i['implementation'].nil?
+              'return 1, fmt.Sprintf("%#x\t??\t%#x", pc, opcode)'
+            when i['opcode'] == '0xcb'
+              'return nextCBInstruction(pc + 1, rom)'
+            when i
+            end
+        }"
+      end
         .map(&:to_s)
         .map {|s| "\n" + s + "\n" }
         .join("\n")
@@ -358,7 +368,9 @@ func (gb *GameBoy) executeGeneratedInstruction(opcode uint8) (cycles uint) {
     default:
         panic(fmt.Sprintf(\"Opcode unhandled by generated instructions: %#x\", opcode))
     }
-}"
+}
+        
+func cbInstruction("
 
 Open3.popen3('goimports') do |stdin, stdout, stderr, wait_thread|
   stdin.write @output
