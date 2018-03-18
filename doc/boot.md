@@ -4,7 +4,7 @@ From [www.nesviksti.com](http://www.neviksti.com/DMG/DMG_ROM.asm)
 
 See also [A Look At The Game Boy Bootstrap: Let The Fun Begin!](https://realboyemulator.wordpress.com/2013/01/03/a-look-at-the-game-boy-bootstrap-let-the-fun-begin/)
 
-~~~asm
+```asm
   LD SP,$fffe    ; $0000  Setup Stack
 
   XOR A       ; $0003  Zero the memory from $8000-$9FFF (VRAM)
@@ -173,4 +173,4 @@ Addr_00F4:
 
   LD A,$01         ; $00fc
   LD ($FF00+$50),A ; $00fe ; turn off DMG rom
-~~~
+```
