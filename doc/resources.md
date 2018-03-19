@@ -64,3 +64,7 @@
 ## Game Boy Dev FAQ
 
 [URL](http://www.devrs.com/gb/files/faqs.html)
+
+## Emulating the Game Boy in Java
+
+[URL](https://www.slideshare.net/TomaszRkawek/emulating-game-boy-in-java)
