@@ -68,3 +68,7 @@
 ## Emulating the Game Boy in Java
 
 [URL](https://www.slideshare.net/TomaszRkawek/emulating-game-boy-in-java)
+
+## Nitty Gritty Game Boy VRAM Timing
+
+[URL](http://blog.kevtris.org/blogfiles/Nitty%20Gritty%20Gameboy%20VRAM%20Timing.txt)
