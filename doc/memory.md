@@ -1,8 +1,8 @@
 # Memory
 
-## Memory map
+## Memory Map
 
-### `0000-3fff` - ROM Bank 00
+### ROM Bank 00
 
 | Address     | Type               | Description                |
 |-------------|--------------------|----------------------------|
@@ -36,13 +36,13 @@
 | `014e-014f` |                    | Checksum                   |
 | `0150-3fff` | ROM                | Cartridge ROM              |
 
-### `4000-7fff` - ROM Bank 01-FF
+### ROM Bank 01-FF
 
 | Address     | Description   |
 |-------------|---------------|
 | `4000-7fff` | Cartridge ROM |
 
-### `8000-9fff` - VRAM
+### VRAM
 
 | Address     | Description                        |
 |-------------|------------------------------------|
@@ -51,7 +51,7 @@
 | `9800-9bff` | BG Tile Map 1                      |
 | `9c00-9fff` | BG Tile Map 2                      |
 
-### `a000-fdff` - RAM
+### RAM
 
 | Address     |               |
 |-------------|---------------|
@@ -59,58 +59,58 @@
 | `c000-cfff` | Internal RAM  |
 | `e000-fdff` | Echo RAM      |
 
-### `fe00-feff` - OAM
+### OAM
 
 | Address     | Description           |
 |-------------|-----------------------|
 | `fe00-fe9f` | 40 4-byte OAM entries |
 | `fea0-feff` | Unused                |
 
-### `ff00-ff4b` - I/O Registers
+### I/O Registers
 
-| Address     | Type            | Description                          |
-|-------------|-----------------|--------------------------------------|
-| `ff00`      | Joypad          | Joypad (P1) (R/W)                    |
-| `ff01`      | Serial transfer | Serial transfer data (SB) (R/W)      |
-| `ff02`      |                 | Serial transfer control (SC) (R/W)   |
-| `ff03`      | Unused          |                                      |
-| `ff04`      | Timer           | Divider Register (DIV) (R/W)         |
-| `ff05`      |                 | Timer Counter (TIMA) (R/W)           |
-| `ff06`      |                 | Timer Modulo (TMA) (R/W)             |
-| `ff07`      |                 | Timer Control (TAC) (R/W)            |
-| `ff08`      | Interrupts      | Interrupt Flag (IF) (R/W)            |
-| `ff09`      | Unused          |                                      |
-| `ff10-ff3f` | Sound           | TODO                                 |
-| `ff40`      | Video           | [LCDC](#lcdc)                        |
-| `ff41`      |                 | LCD Status (STAT) (R/W)              |
-| `ff42`      |                 | Scroll Y (SCY) (R/W)                 |
-| `ff43`      |                 | Scroll X (SCX) (R/W)                 |
-| `ff44`      |                 | LCDC Y-Coordinate (LY) (R)           |
-| `ff45`      |                 | LY Compare (LYC) (R/W)               |
-| `ff46`      |                 | DMA Transfer Start Address (DMA) (W) |
-| `ff47`      |                 | BG & Window Palette (BGP) (R/W)      |
-| `ff48`      |                 | Object Palette 0 (OBP0) (R/W)        |
-| `ff49`      |                 | Object Palette 1 (OBP1) (R/W)        |
-| `ff4a`      |                 | Window Y Position (WY) (R/W)         |
-| `ff4b`      |                 | Window X Position (WX) (R/W)         |
+| Address     | Type            | Description                        |
+|-------------|-----------------|------------------------------------|
+| `ff00`      | Joypad          | Joypad (P1) (R/W)                  |
+| `ff01`      | Serial transfer | Serial transfer data (SB) (R/W)    |
+| `ff02`      |                 | Serial transfer control (SC) (R/W) |
+| `ff03`      | Unused          |                                    |
+| `ff04`      | Timer           | Divider Register (DIV) (R/W)       |
+| `ff05`      |                 | Timer Counter (TIMA) (R/W)         |
+| `ff06`      |                 | Timer Modulo (TMA) (R/W)           |
+| `ff07`      |                 | Timer Control (TAC) (R/W)          |
+| `ff08`      | Interrupts      | Interrupt Flag (IF) (R/W)          |
+| `ff09`      | Unused          |                                    |
+| `ff10-ff3f` | Sound           | TODO                               |
+| `ff40`      | Video           | [LCDC](#lcdc)                      |
+| `ff41`      |                 | [STAT](#stat)                      |
+| `ff42`      |                 | [SCY](#scy)                        |
+| `ff43`      |                 | [SCX](#scx)                        |
+| `ff44`      |                 | [LY](#ly)                          |
+| `ff45`      |                 | [LYC](#lyc)                        |
+| `ff46`      |                 | [DMA](#dma)                        |
+| `ff47`      |                 | [BGP](#bgp)                        |
+| `ff48`      |                 | [OBP0](#obp0)                      |
+| `ff49`      |                 | [OBP1](#obp1)                      |
+| `ff4a`      |                 | Window Y Position (WY) (R/W)       |
+| `ff4b`      |                 | Window X Position (WX) (R/W)       |
 
-### `ff4c-fffe` - HRAM
+### HRAM
 
 | Address     | Description |
 |-------------|-------------|
 | `ff4c-fffe` | HRAM        |
 
-### `ffff` - Interrupt Enable Register
+### Interrupt Enable Register
 
 | Address | Description                 |
 |---------|-----------------------------|
 | `ffff`  | Interrupt Enable (IE) (R/W) |
 
-## I/O Registers
+## Registers
 
 ### LCDC
 
-* **Name**: LCD Control
+* **Purpose**: LCD Control
 * **R/W**: Read & Write
 * **Address**: `ff40`
 * **Default**: `91`
@@ -125,3 +125,143 @@
 | 2   | Sprite size                   | 8x8         | 8x16        | `0`     |
 | 1   | Sprite display                | Off         | On          | `0`     |
 | 0   | Background display            | Off         | On          | `1`     |
+
+### STAT
+
+* **Purpose**: LCD Status
+* **R/W**: Read & Write
+* **Address**: `ff41`
+
+| Bit | Function                  | When 0                   | When 1                  |
+|-----|---------------------------|--------------------------|-------------------------|
+| 7   | Unused                    |                          |                         |
+| 6   | LYC Coincidence Interrupt | Off                      | On                      |
+| 5   | Mode 2 OAM Interrupt      | Off                      | On                      |
+| 4   | Mode 1 V-Blank Interrupt  | Off                      | On                      |
+| 3   | Mode 0 H-Blank Interrupt  | Off                      | On                      |
+| 2   | Coincidence Flag          | [LYC](#lyc) != [LY](#ly) | [LYC](#lyc) = [LY](#ly) |
+| 1-0 | Mode Flag                 | See below                | See below               |
+
+| Mode bit 1 | Mode bit 0 | Description  | Clocks  |
+|------------|------------|--------------|---------|
+| 0          | 0          | H-Blank      | 201-207 |
+| 0          | 1          | V-Blank      | 4560    |
+| 1          | 0          | OAM Search   | 77-83   |
+| 1          | 1          | LCD Transfer | 169-175 |
+
+~~~
+OAM Search + LCD Transfer + H-Blank = 456 clocks
+144 * (OAM Search + LCD Transfer + H-Blank) + V-Blank = 70224 clocks
+~~~
+
+### SCY
+
+* **Purpose**: Scroll Y
+* **R/W**: Read & Write
+* **Address**: `ff42`
+
+Background viewport Y-offset.
+
+### SCX
+
+* **Purpose**: Scroll X
+* **R/W**: Read & Write
+* **Address**: `ff43`
+
+Background viewport X-offset.
+
+### LY
+
+* **Purpose**: LCDC Y-coordinate
+* **R/W**: Read-only
+* **Address**: `ff44`
+
+| Value   | Description                                          |
+|---------|------------------------------------------------------|
+| 0-143   | Index of line currently being transferred to the LCD |
+| 144-153 | V-Blank, no line being transferred                   |
+
+### LYC
+
+* **Purpose**: LY Compare
+* **R/W**: Read & Write
+* **Address**: `ff45`
+
+See [STAT](#stat).
+
+### DMA
+
+* **Purpose**: DMA Transfer to [OAM](#oam)
+* **R/W**: Write-only
+* **Address**: `ff46`
+
+| Value   | Description                                        |
+|---------|----------------------------------------------------|
+| `00-f1` | Start DMA transfer from `xx00-xx9f` to [OAM](#oam) |
+| `f2-ff` | Not supported                                      |
+
+Only [HRAM](#hram) can be accessed during DMA. Therefore, DMA must be
+launched from code in [HRAM](#hram)
+
+DMA takes 160 microseconds. Therefore, execution must remain in
+[HRAM](#hram) for 160 microseconds
+
+~~~asm
+; Somewhere not in HRAM
+
+ ld a,$c0
+ call $ff4c   ; start DMA transfer from $c000 - $c09f to OAM
+
+; ...
+
+; Code assumed to have been pre-copied into HRAM (starting at $ff4c)
+
+ ld ($ff46),a ; start DMA transfer, a=start address/$100
+ ld a,$28     ; delay...
+wait:         ; total 5x40 cycles, approx 200ms
+ dec a        ; 1 cycle
+ jr nz,wait   ; 4 cycles
+ ret
+~~~
+
+### BGP
+
+* **Purpose**: BG Palette Colors
+* **R/W**: Read & Write
+* **Address**: `ff47`
+
+| Bits | Purpose                     |
+|------|-----------------------------|
+| 7-6  | Color of palette value `11` |
+| 5-4  | Color of palette value `10` |
+| 3-2  | Color of palette value `01` |
+| 1-0  | Color of palette value `00` |
+
+| Color | Description |
+|-------|-------------|
+| `00`  | White       |
+| `01`  | Light gray  |
+| `10`  | Dark gray   |
+| `11`  | Black       |
+
+### OBP0
+
+* **Purpose**: Object Palette #0 Colors
+* **R/W**: Read & Write
+* **Address**: `ff48`
+
+See [BGP](#bgp).
+
+Palette value `00` is used for transparency. Therefore, bits 1-0 are
+unused.
+
+### OBP1
+
+* **Purpose**: Object Palette #1 Colors
+* **R/W**: Read & Write
+* **Address**: `ff49`
+
+See [OBP0](#obp0).
+
+Palette value `00` is used for transparency. Therefore, bits 1-0 are
+unused.
