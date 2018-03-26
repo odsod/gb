@@ -12,10 +12,13 @@ type GameBoy struct {
 	pendingInterruptMasterEnable bool
 	interruptEnable              uint8
 	interruptFlag                uint8
+
+	divCycles uint16
 }
 
 func (gb *GameBoy) Step() (cycles uint) {
 	cycles = gb.StepCPU()
+	gb.StepTimer(cycles)
 	gb.StepPPU(cycles)
 	return cycles
 }
