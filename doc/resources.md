@@ -27,15 +27,18 @@
 * [PPU modes](https://www.youtube.com/watch?v=HyzD8pNlpwI&t=45m41s)
 * [OAM (sprite) DMA](https://www.youtube.com/watch?v=HyzD8pNlpwI&t=48m16s)
 
+## The Game Boy Pan Docs
+
+[URL](http://gbdev.gg8.se/files/docs/mirrors/pandocs.html)
+
+* [Timer and Divider Registers](http://gbdev.gg8.se/files/docs/mirrors/pandocs.html#timeranddividerregisters)
+
 ## Game Boy Development Wiki
 
 [URL](http://gbdev.gg8.se/wiki/articles/Main_Page)
 
 * [Bootstrap ROM](http://gbdev.gg8.se/wiki/articles/Gameboy_Bootstrap_ROM)
-
-## The Game Boy Pan Docs
-
-[URL](http://bgb.bircd.org/pandocs.htm)
+* [Timer Obscure Behavior](http://gbdev.gg8.se/files/docs/mirrors/pandocs.html#timeranddividerregisters)
 
 ## Game Boy CPU Manual
 
