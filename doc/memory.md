@@ -74,10 +74,10 @@
 | `ff01`      | Serial transfer | Serial transfer data (SB) (R/W)    |
 | `ff02`      |                 | Serial transfer control (SC) (R/W) |
 | `ff03`      | Unused          |                                    |
-| `ff04`      | Timer           | Divider Register (DIV) (R/W)       |
-| `ff05`      |                 | Timer Counter (TIMA) (R/W)         |
-| `ff06`      |                 | Timer Modulo (TMA) (R/W)           |
-| `ff07`      |                 | Timer Control (TAC) (R/W)          |
+| `ff04`      | Timer           | [DIV](#div)                        |
+| `ff05`      |                 | [TIMA](#tima)                      |
+| `ff06`      |                 | [TMA](#tma)                        |
+| `ff07`      |                 | [TAC](#tac)                        |
 | `ff08`      | Interrupts      | Interrupt Flag (IF) (R/W)          |
 | `ff09`      | Unused          |                                    |
 | `ff10-ff3f` | Sound           | TODO                               |
@@ -107,6 +107,61 @@
 | `ffff`  | Interrupt Enable (IE) (R/W) |
 
 ## Registers
+
+### DIV
+
+* **Purpose**: Divider Register
+* **R/W**: Read & Write
+* **Address**: `ff04`
+
+Increments at a rate of 16384Hz.
+
+GameBoy clock speed is 4194304Hz, meaning it increments every 256th CPU
+cycle.
+
+Can be implemented by a 16-bit cycle counter, by shifting out the low 8
+bits upon read.
+
+Writing any value resets to 0.
+
+### TIMA
+
+* **Purpose**: Timer Counter
+* **R/W**: Read & Write
+* **Address**: `ff05`
+
+Incremented at a frequency determined by [TAC](#tac).
+
+Reset to [TMA](#tma) and triggers an interrupt upon overflow.
+
+### TMA
+
+* **Purpose**: Timer Modulo
+* **R/W**: Read & Write
+* **Address**: `ff06`
+
+Loaded into [TIMA](#tima) when it overflows.
+
+### TAC
+
+* **Purpose**: Timer Control
+* **R/W**: Read & Write
+* **Address**: `ff07`
+
+| Bits | Purpose            | When 0    | When 1    |
+|------|--------------------|-----------|-----------|
+| 2    | Timer Enable       | Off       | On        |
+| 1-0  | Input Clock Select | See below | See below |
+
+| Input Clock Select | Clock Frequency | [DIV](#div) bit |
+|--------------------|-----------------|-----------------|
+| 00                 | 4096Hz          | 9               |
+| 01                 | 262144Hz        | 3               |
+| 10                 | 65536Hz         | 5               |
+| 11                 | 16384Hz         | 7               |
+
+[TMA](#tma) is incremented on the falling edge of the selected [DIV](#div)
+bit.
 
 ### LCDC
 

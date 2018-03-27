@@ -38,7 +38,7 @@
 [URL](http://gbdev.gg8.se/wiki/articles/Main_Page)
 
 * [Bootstrap ROM](http://gbdev.gg8.se/wiki/articles/Gameboy_Bootstrap_ROM)
-* [Timer Obscure Behavior](http://gbdev.gg8.se/files/docs/mirrors/pandocs.html#timeranddividerregisters)
+* [Timer Obscure Behavior](http://gbdev.gg8.se/wiki/articles/Timer_Obscure_Behaviour)
 
 ## Game Boy CPU Manual
 
